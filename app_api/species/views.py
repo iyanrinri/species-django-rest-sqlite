@@ -1,13 +1,22 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from rest_framework import generics, viewsets
-from .serializers import ProtectedSpeciesSerializer
-from .models import ProtectedSpecies
-# Create your views here.
+from .serializers import SpeciesSerializer, CategorySerializer
+from .models import Species, Category
 
-class ProtectedSpeciesListCreateView(generics.ListCreateAPIView):
-    queryset = ProtectedSpecies.objects.all()
-    serializer_class = ProtectedSpeciesSerializer
 
-class ProtectedSpeciesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ProtectedSpecies.objects.all()
-    serializer_class = ProtectedSpeciesSerializer
+class SpeciesListCreateView(generics.ListCreateAPIView):
+    queryset = Species.objects.all()
+    serializer_class = SpeciesSerializer
+
+
+class SpeciesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Species.objects.all()
+    serializer_class = SpeciesSerializer
+
+class CategoryListCreateView(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+class CategoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

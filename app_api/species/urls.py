@@ -16,9 +16,13 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path
-from .views import ProtectedSpeciesListCreateView, ProtectedSpeciesRetrieveUpdateDestroyView
+from .views import SpeciesListCreateView, SpeciesRetrieveUpdateDestroyView, CategoryListCreateView, CategoryRetrieveUpdateDestroyView
 
 urlpatterns = [
-    path('species/', ProtectedSpeciesListCreateView.as_view(), name="species-list-create"),
-    path('species/<int:pk>/', ProtectedSpeciesRetrieveUpdateDestroyView.as_view(), name="species-retrieve-update-destroy")
+    path('categories/', CategoryListCreateView.as_view(), name="category-list-create"),
+    path('categories/<int:pk>/', CategoryRetrieveUpdateDestroyView.as_view(), name="category-retrieve-update-destroy"),
+
+    path('species/', SpeciesListCreateView.as_view(), name="species-list-create"),
+    path('species/<int:pk>/', SpeciesRetrieveUpdateDestroyView.as_view(), name="species-retrieve-update-destroy"),
+
 ]
